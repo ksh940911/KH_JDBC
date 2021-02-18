@@ -4,7 +4,7 @@ import java.sql.Date;
 
 /**
  * 
- * VO객체는 Member테이블의 한 행과 대응한다. 회원하나의 정보를 객체 하나에 담는것!
+ * VO객체는 Member테이블의 한 행과 대응한다.
  *
  */
 public class Member {
@@ -12,7 +12,7 @@ public class Member {
 	private String memberId;
 	private String password;
 	private String memberName;
-	private String gender; 		// M F
+	private String gender; 		//M F
 	private int age;
 	private String email;
 	private String phone;
@@ -126,6 +126,8 @@ public class Member {
 				+ gender + ", age=" + age + ", email=" + email + ", phone=" + phone + ", address=" + address
 				+ ", hobby=" + hobby + ", enrollDate=" + enrollDate + "]";
 	}
+	
+	
 	
 	
 	

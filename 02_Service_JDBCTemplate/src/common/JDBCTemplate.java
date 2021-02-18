@@ -13,7 +13,7 @@ import java.sql.SQLException;
  */
 public class JDBCTemplate {
 	static String driverClass = "oracle.jdbc.OracleDriver";
-	static String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	static String url = "jdbc:oracle:thin:@khmclass.iptime.org:1521:xe";
 	static String user = "student";
 	static String password = "student";
 	

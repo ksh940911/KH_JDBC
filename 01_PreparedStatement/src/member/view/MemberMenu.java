@@ -8,7 +8,7 @@ import member.model.vo.Member;
 
 public class MemberMenu {
 	
-	private MemberController memberController = new MemberController();
+	private MemberController memberController = new MemberController(); 
 	private Scanner sc = new Scanner(System.in);
 	
 	public void mainMenu() {
@@ -123,14 +123,14 @@ public class MemberMenu {
 		Member member = new Member();
 		System.out.print("아이디 : ");
 		member.setMemberId(sc.next());
-		System.out.print("이름 : ");
-		member.setMemberName(sc.next());
 		System.out.print("비밀번호 : ");
 		member.setPassword(sc.next());
-		System.out.print("나이 : ");
-		member.setAge(sc.nextInt());
+		System.out.print("이름 : ");
+		member.setMemberName(sc.next());
 		System.out.print("성별(M/F) : ");//m,f는 안됨
 		member.setGender(String.valueOf(sc.next().toUpperCase().charAt(0)));
+		System.out.print("나이 : ");
+		member.setAge(sc.nextInt());
 		System.out.print("이메일: ");
 		member.setEmail(sc.next());
 		System.out.print("전화번호(-빼고 입력) : ");

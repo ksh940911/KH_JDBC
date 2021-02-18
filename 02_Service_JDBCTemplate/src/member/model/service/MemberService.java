@@ -52,7 +52,7 @@ public class MemberService {
 	 */
 	public List<Member> selectAll_() {
 		String driverClass = "oracle.jdbc.OracleDriver";
-		String url = "jdbc:oracle:thin:@khmclass.iptime.org:1521:xe";
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		String user = "student";
 		String password = "student";
 		Connection conn = null;
@@ -90,6 +90,51 @@ public class MemberService {
 	public int insertMember(Member member) {
 		Connection conn = getConnection();
 		int result = memberDao.insertMember(conn, member);
+		if(result > 0) commit(conn);
+		else rollback(conn);
+		close(conn);
+		return result;
+	}
+	
+	public Member selectOneMember(String memberId) {
+		//1. Connection객체 생성
+		Connection conn = getConnection();
+		//2. dao에 Connection객체, memberId를 전달해서 Member객체를 리턴받음.
+		Member m = memberDao.selectOneMember(conn, memberId);
+		//3. Connection 자원반납
+		close(conn);
+		
+//		System.out.println("member@service="+m);
+		return m;
+	}
+	
+
+	public List<Member> selectByName(String memberName) {
+		Connection conn = getConnection();
+		List<Member> list = memberDao.selectByName(conn, memberName);
+		close(conn);
+		return list;
+	}
+	
+	public Member selectOne(String memberId){
+		Connection conn = getConnection();
+		Member m = memberDao.selectOne(conn, memberId);
+		close(conn);
+		return m;
+	}
+	
+	public int updateMember(Member m) {
+		Connection conn = getConnection();
+		int result = memberDao.updateMember(conn, m);
+		if(result > 0) commit(conn);
+		else rollback(conn);
+		close(conn);
+		return result;
+	}
+	
+	public int deleteMember(String memberId) {
+		Connection conn = getConnection();
+		int result = memberDao.deleteMember(conn, memberId);
 		if(result > 0) commit(conn);
 		else rollback(conn);
 		close(conn);
