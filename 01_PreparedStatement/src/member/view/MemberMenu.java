@@ -99,7 +99,7 @@ public class MemberMenu {
 		}
 		else {
 			System.out.println("*********************************************************");
-			for(Member m : list) {
+			for(Member m : list) { 
 				System.out.println(m);
 			}
 			System.out.println("*********************************************************");

@@ -76,7 +76,7 @@ public class MemberDao {
 			//8. 자원반납(생성의 역순)
 			try {
 				if(pstmt != null)
-					pstmt.close();
+					pstmt.close(); 
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -239,7 +239,7 @@ public class MemberDao {
 			pstmt.setString(1, "%" + memberName + "%");
 			
 			//4. 쿼리문 전송, 실행결과 받기
-			rset = pstmt.executeQuery();
+			rset = pstmt.executeQuery( ); 
 			
 			//5. 받은 결과값들을 객체에 옮겨 저장하기
 			//rset가 null인경우는 모두 Exception처리된다.
@@ -285,8 +285,8 @@ public class MemberDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		//키워드, 값 사이의 공란주의
-		String query = "update member set "
+		//키워드, 값 사이의 공란주의 "update member set password=?,email=?,phone=?,address=? where member_id=?"
+		String query = "update member set"
 					 + " password=?"
 					 + ",email=?"
 					 + ",phone=?"
